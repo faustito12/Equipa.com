@@ -1486,3 +1486,108 @@ body{
     background-color: #b5c937; /* Color de la línea */
     border-radius: 2px;
 }
+
+/* ==========================================================================
+   ADAPTACIÓN PARA CELULARES (ANDROID / iOS) — PANTALLAS MENORES A 768px
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* PÁGINA DE CONTACTO: Los 3 bloques informativos pasan a ser 1 sola columna */
+    .info-blocks-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .info-card {
+        padding: 40px 20px !important; /* Achicamos el relleno para que no ocupe tanto espacio */
+        min-height: auto !important;
+    }
+
+    /* PÁGINA DE CONTACTO: El mapa y el formulario se apilan */
+    .form-map-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .map-container {
+        height: 300px !important; /* En celular el mapa no necesita ser tan alto */
+        order: 2; /* El mapa se va abajo del formulario para mejor experiencia */
+    }
+    
+    .form-container {
+        order: 1;
+        padding: 40px 20px !important;
+    }
+    
+    .form-container h2 {
+        font-size: 2.2rem !important; /* Texto más acorde al tamaño de un celular */
+    }
+
+    /* PÁGINA DE SERVICIOS: Las 4 columnas se transforman en 1 sola hilera */
+    .services-quad-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .service-quad-card {
+        padding: 20px;
+        background: #fdfdfd;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Le da un toque de app móvil */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-direction: column; /* El logo arriba, los links abajo */
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+    .nav-links {
+        gap: 15px !important;
+        flex-wrap: wrap; /* Si son muchos, bajan solos sin romperse */
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem !important; /* Letra ligeramente más pequeña para que entre cómoda */
+    }
+    
+    /* Ajuste del subrayado dinámico en móviles */
+    .nav-links a.active-page::after {
+        bottom: -3px;
+    }
+}
+
+/* Corrección de tamaño de texto para inputs en celulares */
+@media (max-width: 768px) {
+    .form-group input, 
+    .form-group textarea,
+    .chat-form input,
+    .chat-form textarea {
+        font-size: 16px !important; /* Obligatorio para que iOS no fuerce un zoom molesto */
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Portadas / Heroes principales */
+    .hero-main-title {
+        font-size: 2.5rem !important; /* Se adapta al ancho del teléfono */
+    }
+    
+    .hero-hashtags {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Títulos de secciones */
+    .plan-content h2, 
+    .seo-closure-section h3 {
+        font-size: 1.6rem !important;
+    }
+    
+    .methodology-tabs {
+        flex-direction: column; /* Las pestañas de metodología se apilan */
+        gap: 15px !important;
+        align-items: center;
+    }
+}
